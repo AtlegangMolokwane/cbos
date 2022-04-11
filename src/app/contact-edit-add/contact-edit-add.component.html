@@ -1,0 +1,30 @@
+<div style="display: flex; justify-content: center">
+  <div>
+    <div class="col-md-6"></div>
+    <h3
+      *ngIf="editMode === false"
+      style="display: flex; justify-content: center"
+    >
+      Add
+    </h3>
+    <h3
+      *ngIf="editMode === true"
+      style="display: flex; justify-content: center"
+    >
+      Edit
+    </h3>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" formControlName="name" />
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input class="form-control" type="text" formControlName="phoneNumber" />
+      </div>
+      <button class="btn btn-success" type="submit" [disabled]="form.invalid">
+        Save
+      </button>
+    </form>
+  </div>
+</div>
